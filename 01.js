@@ -254,4 +254,173 @@ myObj[prop] = "value";
 
 // Delete properties
 delete myObj.prop; // OR
-delete myObj[prop];
+delete myObj["prop"];
+
+/* - - - - - - - - - - - - - - - - - - - - - */
+
+/* EXERCISE: Convert the switch statement into an object called lookup. Use it to look up val and assign the associated string to the result variable. */
+
+// Setup
+function phoneticLookup(val) {
+  var result = "";
+
+  // Only change code below this line
+
+/*  switch (val) {
+    case "alpha":
+      result = "Adams";
+      break;
+    case "bravo":
+      result = "Boston";
+      break;
+    case "charlie":
+      result = "Chicago";
+      break;
+    case "delta":
+      result = "Denver";
+      break;
+    case "echo":
+      result = "Easy";
+      break;
+    case "foxtrot":
+      result = "Frank";
+  } */
+
+  var lookup = {
+    alpha: "Adams",
+    bravo: "Boston",
+    charlie: "Chicago",
+    delta: "Denver",
+    echo: "Easy",
+    foxtrot: "Frank"
+  }
+
+  result = lookup[val];
+
+  // Only change code above this line
+  return result;
+}
+
+phoneticLookup("charlie");
+
+/* - - - - - - - - - - - - - - - - - - - - - */
+
+// Testing Objects for Properties
+/* Modify the function checkObj to test if an object passed to the function (obj) contains a specific property (checkProp). If the property is found, return that property's value. If not, return "Not Found". */
+
+function checkObj(obj, checkProp) {
+  // Only change code below this line
+  if(obj.hasOwnProperty(checkProp)) {
+    return obj[checkProp];
+  } else {
+    return "Not Found";
+  }
+  // Only change code above this line
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - */
+
+/* Basic JavaScript: Record Collection
+You are given a JSON object representing a part of your musical album collection. Each album has several properties and a unique id number as its key. Not all albums have complete information.
+
+Write a function which takes an album's id (like 2548), a property prop (like "artist" or "tracks"), and a value (like "Addicted to Love") to modify the data in this collection.
+
+If prop isn't "tracks" and value isn't empty (""), update or set the value for that record album's property.
+
+Your function must always return the entire collection object.
+
+There are several rules for handling incomplete data:
+
+If prop is "tracks" but the album doesn't have a "tracks" property, create an empty array before adding the new value to the album's corresponding property.
+
+If prop is "tracks" and value isn't empty (""), push the value onto the end of the album's existing tracks array.
+
+If value is empty (""), delete the given prop property from the album.
+
+Hints
+Use bracket notation when accessing object properties with variables (https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/accessing-object-properties-with-variables).
+
+Push is an array method you can read about on Mozilla Developer Network (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push).
+
+You may refer back to Manipulating Complex Objects (https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/manipulating-complex-objects) Introducing JavaScript Object Notation (JSON) for a refresher. */
+
+// Setup
+var collection = {
+  2548: {
+    album: "Slippery When Wet",
+    artist: "Bon Jovi",
+    tracks: [
+      "Let It Rock",
+      "You Give Love a Bad Name"
+    ]
+  },
+  2468: {
+    album: "1999",
+    artist: "Prince",
+    tracks: [
+      "1999",
+      "Little Red Corvette"
+    ]
+  },
+  1245: {
+    artist: "Robert Palmer",
+    tracks: [ ]
+  },
+  5439: {
+    album: "ABBA Gold"
+  }
+};
+
+// Only change code below this line
+function updateRecords(id, prop, value) {
+
+  if ( prop != "tracks" && value != "" ) {
+    collection[id][prop] = value;
+  } else if ( prop == "tracks" && !collection[id].hasOwnProperty(prop) ) {
+    collection[id][prop] = [];
+    collection[id][prop].push(value);
+  } else if ( prop == "tracks" && value != "" ) {
+    collection[id][prop].push(value);
+  } else if ( value == "" ) {
+    delete collection[id][prop];
+  }
+
+  return collection;
+}
+
+updateRecords(5439, "artist", "ABBA");
+
+/* - - - - - - - - - - - - - - - - - - - - - */
+
+// Iterate with WHILE loops
+
+var i = 0;
+while(i < 5) {
+  console.log(i);
+  i++;
+}
+
+// Iterate with FOR loops
+
+for (var i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+// Iterate Through an Array with a For Loop
+
+var myArr = [ 2, 3, 4, 5, 6];
+var total = 0;
+
+for ( var i = 0 ; i < myArr.length ; i++ ) {
+  total += myArr[i];
+}
+
+// Nesting For Loops
+var arr = [
+  [1,2], [3,4], [5,6]
+];
+for (var i=0; i < arr.length; i++) {
+  for (var j=0; j < arr[i].length; j++) {
+    console.log(arr[i][j]);
+  }
+}
