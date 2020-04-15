@@ -1,1 +1,3 @@
-# studies Javascript freeCodeCamp.org
+# Basic Javascript studies
+
+My Basic Javascript studies at [freeCodeCamp.org](https://www.freecodecamp.org/)
