@@ -119,6 +119,12 @@ bArr = aArr.shift(); // remove and return the first element
 aArr == [ 2, 3, "cake" ];
 bArr == 1;
 
+aArr = [ 1, 2, 3, "cake" ];
+
+aArr.splice(position, n); // remove and return 'n' elements from 'position'
+cArr = aArr.splice(1, 2);
+cArr = [ 2, 3 ];
+
 aArr.unshift( ["a", "b", "c"] ) // add elements in front of the array
 aArr == [ ["a", "b", "c"], 2, 3, "cake" ];
 
