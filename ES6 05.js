@@ -106,26 +106,26 @@ const {today: {low: lowToday, high: highToday}} = LOCAL_FORECAST;
 /* ES6: Use Destructuring Assignment to Assign Variables from Arrays */
 
 const [a, b] = [1, 2, 3, 4, 5, 6];
-console.log(a, b); // 1, 2
+console.log(a, b); // 1 2
 
 // OR
 
 const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
-console.log(a, b, c); // 1, 2, 5
+console.log(a, b, c); // 1 2 5
 
 // Exercise
 // Use destructuring assignment to swap the values of a and b so that a receives the value stored in b, and b receives the value stored in a.
 
 let a = 8, b = 6;
 [a, b] = [b, a]
-console.log(a, b); // 6, 8
+console.log(a, b); // 6 8
 
 
 
 /* ES6: Use Destructuring Assignment with the Rest Parameter to Reassign Array Elements */
 
 const [a, b, ...arr] = [1, 2, 3, 4, 5, 7];
-console.log(a, b); // 1, 2
+console.log(a, b); // 1 2
 console.log(arr); // [3, 4, 5, 7]
 
 // Discarting firsts elements
